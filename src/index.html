@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cr </title>
+</head>
+<body>
+    <header>
+        Copywrite Jlab
+    </header>
+    
+    <div>
+        <fieldset>
+            <input type="text" id="toDoTitle" placeholder="To do title" required>
+            <input type="text" id="toDoDescription" placeholder="Description">
+            <input type="date" id="toDoDueDate">
+
+            <label for="toDoUrgency">Urgency</label>
+                <select id="toDoUrgency">
+                    <option value="Not Urgent" autofocus>Not Urgent</option>
+                    <option value="Urgent">Urgent</option>
+                </select>
+                
+            <label for="toDoImportance">Importance</label>
+                <select id="toDoImportance">
+                    <option value="Not Important">Not Important</option>
+                    <option value="Important">Important</option>
+                </select>
+
+             <button id="addToDo">+ TO DO</button>
+             <button id="updateToDo">UPDATE</button>
+             <button id="cancelToDo">CANCEL</button>
+        </fieldset>
+    </div>
+
+    <div>
+        <fieldset>
+            <input type="text" id="projectTitle" placeholder="Project Title">
+            <button type="button" id="cancelProject">CANCEL</button>
+            <button type="button" id="updateProject">UPDATE</button>
+            <button type="button" id="deleteProject">DELETE</button>
+        </fieldset>
+    </div>
+
+    <div class="navigationContainer">
+        <div>
+            <button id="allToDo">All to do</button>
+            <button id="dueToday">Due today</button>
+            <button id="overdue">Overdue</button>
+        </div>
+        <div class="projectsContainer">
+            <div class="projectsHeader">
+                <p>PROJECTS</p>
+                <button id="addProject">+</button>
+            </div>
+            <div id="projectContainer">
+                <div id="projectList">
+                    <!-- insert here dom for new to do item -->
+                </div>
+            </div>           
+        </div>
+    </div>
+
+    <div class="workspaceContainer">
+        <div id="titleContainer">
+            <!-- insert here project title or the "all to do.. due today.. etc" -->
+        </div>
+        <div id="toDoContainer">
+            <table id="todoTable">
+                <thead>
+                    <tr>
+                        <td>Checkbox</td>
+                        <td>Quadrant</td>
+                        <td>Due Date</td>
+                        <td><button id="addToDo">+ TO DO</button></td>
+                    </tr>
+                </thead>
+                <tbody id="toDoList">
+                    <!-- insert here dom for new to do item -->
+                </tbody>
+            </table>           
+        </div>
+    </div>
+</body>
+    <script src="main-revised2.js"></script>
+
+</html>
+
+
