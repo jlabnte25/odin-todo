@@ -1,0 +1,175 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+  }
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    font-family: Inter;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+
+header {
+    width: 100%;
+    background-color: #ff724f;
+    text-align: center;
+    color: white;
+    padding: 15px 0;
+}
+
+
+.parentContainer {
+    display: flex;
+}
+
+.navigationContainer{
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    height: 100vh;
+    background-color: #f1f1f1;
+    padding: 10px;
+    gap: 15px;
+}
+
+
+.generalButtonsContainer {
+    display: flex;
+    flex-direction: column;
+    align-self: self-start;
+}
+
+.generalButtonsContainer button {
+    border: none;
+    text-align: start;
+}
+
+.projectsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+.projectsHeader p {
+    font-weight: 900;
+    font-size: 1.5rem;
+}
+
+#openProjectDialog {
+    border: none;
+}
+
+.projectTitle {
+    border: none;
+    padding: none;
+}
+
+.projectItemContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.projectItemContainer button:nth-child(2) {
+    font-weight: 999;
+    border: none;
+}
+
+
+.workspaceContainer {
+    display:flex;
+    flex-direction: column;
+    width: 80vw;
+}
+
+
+
+
+#titleContainer {
+    background-color:#f1f1f1;
+    margin: 2vw 4.1vw 1vw 4.1vw;
+    text-align: center;
+    padding: 2vw;
+    font-size: 2rem;
+    color: #ff443a;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+#toDoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#todoTable {
+    margin: 3.4rem;
+    border-radius: 10px;
+}
+
+
+
+/* Container for the table */
+#toDoContainer {
+    width: 100%;
+    padding: 10px;
+}
+
+/* Styles for the table */
+#todoTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+#todoTable thead td {
+    text-align: center;
+    font-weight: bold;
+    background-color: #f2f2f2; /* Header background color */
+    padding: 10px;
+}
+
+/* Body styling */
+#todoTable tbody td {
+    text-align: left;
+    background-color: #f9f9f9; /* Body background color */
+    padding: 10px;
+}
+
+/* Center align for the checkbox column */
+#todoTable tbody td:first-child, /* First column in body */
+#todoTable thead td:first-child { /* First column in header */
+    text-align: center;
+}
+
+/* Button styling */
+#openToDoDialog {
+    background-color: #ff443a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 0.5rem 1.4rem;
+}
+
+#openToDoDialog:hover {
+    background-color: #45a049;
+}

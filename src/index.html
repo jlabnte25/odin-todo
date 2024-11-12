@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cr </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         Copywrite Jlab
     </header>
     
-    <div>
+
+    <dialog id="toDoDialog">
         <fieldset>
             <input type="text" id="toDoTitle" placeholder="To do title" required>
             <input type="text" id="toDoDescription" placeholder="Description">
@@ -28,31 +33,34 @@
                     <option value="Important">Important</option>
                 </select>
 
-             <button id="addToDo">+ TO DO</button>
+             <button id="addToDo">SUBMIT</button>
              <button id="updateToDo">UPDATE</button>
              <button id="cancelToDo">CANCEL</button>
         </fieldset>
-    </div>
+    </dialog>
 
-    <div>
+    <dialog id="projectDialog">
         <fieldset>
             <input type="text" id="projectTitle" placeholder="Project Title">
-            <button type="button" id="cancelProject">CANCEL</button>
+            <button type="button" id="addProject">SUBMIT</button>
             <button type="button" id="updateProject">UPDATE</button>
             <button type="button" id="deleteProject">DELETE</button>
+            <button type="button" id="cancelProject">CANCEL</button>
         </fieldset>
-    </div>
+    </dialog>
 
+<div class="parentContainer">
     <div class="navigationContainer">
-        <div>
+        <div class="generalButtonsContainer">
             <button id="allToDo">All to do</button>
             <button id="dueToday">Due today</button>
             <button id="overdue">Overdue</button>
         </div>
+
         <div class="projectsContainer">
             <div class="projectsHeader">
                 <p>PROJECTS</p>
-                <button id="addProject">+</button>
+                <button id="openProjectDialog">+</button>
             </div>
             <div id="projectContainer">
                 <div id="projectList">
@@ -60,6 +68,7 @@
                 </div>
             </div>           
         </div>
+        
     </div>
 
     <div class="workspaceContainer">
@@ -72,8 +81,10 @@
                     <tr>
                         <td>Checkbox</td>
                         <td>Quadrant</td>
+                        <td>Title</td>
                         <td>Due Date</td>
-                        <td><button id="addToDo">+ TO DO</button></td>
+                        <td>Description</td>
+                        <td><button id="openToDoDialog">+ TO DO</button></td>
                     </tr>
                 </thead>
                 <tbody id="toDoList">
@@ -82,8 +93,9 @@
             </table>           
         </div>
     </div>
+</div>
 </body>
-    <script src="main-revised2.js"></script>
+    <script src="main.js"></script>
 
 </html>
 

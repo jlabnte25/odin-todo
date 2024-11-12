@@ -97,9 +97,11 @@ class CreateProject {
         // Create the edit button
         const projectEditBtn = document.createElement('button');
         projectEditBtn.classList.add("projectEditButton");
-        projectEditBtn.textContent = 'Edit';
+        projectEditBtn.textContent = '...';
         projectEditBtn.setAttribute('data-id', projectItem.projectName);
-        projectEditBtn.onclick = () => editProject(projectItem.projectName);
+        projectEditBtn.onclick = () => {editProject(projectItem.projectName);
+            openProjectDialogUponEdit();
+        };
         projectEditBtn.id = `projectEditBtn`;
         projectItemContainer.appendChild(projectEditBtn);
 
@@ -189,7 +191,9 @@ class AssignToDoContent {
         editButton.textContent = 'Edit';
         editButton.id = 'editToDo';
         editButton.setAttribute('data-id', toDoItem.id);
-        editButton.onclick = () => editToDoItem(toDoItem.id);
+        editButton.onclick = () => {editToDoItem(toDoItem.id);
+            openToDoDialogUponEdit();
+        };
         actionsCell.appendChild(editButton);
 
         toDoRow.appendChild(actionsCell);
@@ -226,7 +230,8 @@ addToDoBtn.addEventListener('click', () => {
         alert("Please fill in all the required fields.");
     }
 
-    saveToLocalStorage()
+    toDoDialog.close();
+    saveToLocalStorage();
 });
 
 function validateToDoInputField() {
@@ -251,7 +256,8 @@ function deleteToDoItem(toDoItemID, toDoRow) {
     projectActiveObject.projectItems.splice(index, 1);
     toDoRow.remove();
 
-    saveToLocalStorage()
+    toDoDialog.close();
+    saveToLocalStorage();
 }
 
 // Edit a to-do item
@@ -285,6 +291,7 @@ updateToDoBtn.addEventListener('click', () => {
         alert("Please fill in all the required fields.");
     }
 
+    toDoDialog.close();
     saveToLocalStorage()
 });
 
@@ -294,7 +301,7 @@ addProjectBtn.addEventListener('click', () => {
     if (addedProject) {
         newProject.displayParentObject(addedProject);
     }
-
+    projectDialog.close();
     saveToLocalStorage()
 });
 
@@ -332,6 +339,7 @@ updateProjectBtn.addEventListener('click', () => {
         document.getElementById('projectTitle').value = null;
     }
 
+    projectDialog.close();
     saveToLocalStorage()
 });
 
@@ -343,14 +351,58 @@ deleteProjectBtn.addEventListener('click', () => {
         projectActiveObject = null;
     }
 
+    const toDoList = document.getElementById('toDoList');
+    toDoList.innerHTML = '';
+
+    projectDialog.close();
     saveToLocalStorage()
 });
 
-cancelProjectBtn.addEventListener('click', () => {
-    projectActiveObject = null;
-    document.getElementById('titleContainer').textContent = "";
+// UI UX 
+const toDoDialog = document.getElementById('toDoDialog');
+const projectDialog = document.getElementById('projectDialog');
+const openToDoDialog = document.getElementById('openToDoDialog');
+const openProjectDialog = document.getElementById('openProjectDialog');
+const projectEditBtn = document.getElementById('projectEditBtn');
+const cancelToDoBtn = document.getElementById('cancelToDo');
+
+
+openProjectDialog.addEventListener('click', () => {
+    projectDialog.showModal();
+    document.getElementById('titleContainer').textContent = ""; // reset text input
+    addProjectBtn.style.display = 'block';
+    deleteProjectBtn.style.display = 'none';
+    updateProjectBtn.style.display = 'none';
 });
 
+cancelProjectBtn.addEventListener('click', () => {
+    document.getElementById('titleContainer').textContent = "";
+    projectDialog.close();
+});
+
+function openProjectDialogUponEdit () {
+    projectDialog.showModal(); 
+    deleteProjectBtn.style.display = 'block';
+    updateProjectBtn.style.display = 'block';
+    addProjectBtn.style.display = 'none';
+}
+
+openToDoDialog.addEventListener('click', ()=> {
+    toDoDialog.showModal();
+    updateToDoBtn.style.display = 'none';
+    addToDoBtn.style.display = 'block'
+})
+
+cancelToDoBtn.addEventListener('click', () => {
+    emptyToDoInputField();
+    toDoDialog.close();
+});
+
+function openToDoDialogUponEdit () {
+    toDoDialog.showModal();
+    addToDoBtn.style.display = 'none'
+    updateToDoBtn.style.display = 'inline-block';
+};
 
 
 // for the sort create a new key:value inside the object that follows a condition
