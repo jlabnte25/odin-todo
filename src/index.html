@@ -1,102 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cr </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        Copywrite Jlab
-    </header>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cr</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>Copywrite Jlab NOTE: !!! WIP (╥﹏╥) !!!</header>
 
     <dialog id="toDoDialog">
-        <fieldset>
-            <input type="text" id="toDoTitle" placeholder="To do title" required>
-            <input type="text" id="toDoDescription" placeholder="Description">
-            <input type="date" id="toDoDueDate">
+      <fieldset>
+        <input type="text" id="toDoTitle" placeholder="To do title" required />
+        <input
+          type="text"
+          id="toDoDescription"
+          placeholder="Description"
+          height="2rem"
+        />
+        <input type="date" id="toDoDueDate" />
 
-            <label for="toDoUrgency">Urgency</label>
-                <select id="toDoUrgency">
-                    <option value="Not Urgent" autofocus>Not Urgent</option>
-                    <option value="Urgent">Urgent</option>
-                </select>
-                
-            <label for="toDoImportance">Importance</label>
-                <select id="toDoImportance">
-                    <option value="Not Important">Not Important</option>
-                    <option value="Important">Important</option>
-                </select>
+        <label for="toDoUrgency">Urgency</label>
+        <select id="toDoUrgency">
+          <option value="Not Urgent" autofocus>Not Urgent</option>
+          <option value="Urgent">Urgent</option>
+        </select>
 
-             <button id="addToDo">SUBMIT</button>
-             <button id="updateToDo">UPDATE</button>
-             <button id="cancelToDo">CANCEL</button>
-        </fieldset>
+        <label for="toDoImportance">Importance</label>
+        <select id="toDoImportance">
+          <option value="Not Important">Not Important</option>
+          <option value="Important">Important</option>
+        </select>
+
+        <button id="addToDo">SUBMIT</button>
+        <button id="updateToDo">UPDATE</button>
+        <button id="cancelToDo">CANCEL</button>
+      </fieldset>
     </dialog>
 
     <dialog id="projectDialog">
-        <fieldset>
-            <input type="text" id="projectTitle" placeholder="Project Title">
-            <button type="button" id="addProject">SUBMIT</button>
-            <button type="button" id="updateProject">UPDATE</button>
-            <button type="button" id="deleteProject">DELETE</button>
-            <button type="button" id="cancelProject">CANCEL</button>
-        </fieldset>
+      <fieldset>
+        <input type="text" id="projectTitle" placeholder="Project Title" />
+        <button type="button" id="addProject">SUBMIT</button>
+        <button type="button" id="updateProject">UPDATE</button>
+        <button type="button" id="deleteProject">DELETE</button>
+        <button type="button" id="cancelProject">CANCEL</button>
+      </fieldset>
     </dialog>
 
-<div class="parentContainer">
-    <div class="navigationContainer">
+    <div class="parentContainer">
+      <div class="navigationContainer">
         <div class="generalButtonsContainer">
-            <button id="allToDo">All to do</button>
-            <button id="dueToday">Due today</button>
-            <button id="overdue">Overdue</button>
+          <button id="allToDo">All to do</button>
+          <!-- <button id="dueToday">Due today</button>
+          <button id="overdue">Overdue</button> -->
         </div>
 
         <div class="projectsContainer">
-            <div class="projectsHeader">
-                <p>PROJECTS</p>
-                <button id="openProjectDialog">+</button>
+          <div class="projectsHeader">
+            <p>PROJECTS</p>
+            <button id="openProjectDialog">+</button>
+          </div>
+          <div id="projectContainer">
+            <div id="projectList">
+              <!-- insert here dom for new to do item -->
             </div>
-            <div id="projectContainer">
-                <div id="projectList">
-                    <!-- insert here dom for new to do item -->
-                </div>
-            </div>           
+          </div>
         </div>
-        
-    </div>
+      </div>
 
-    <div class="workspaceContainer">
+      <div class="workspaceContainer">
         <div id="titleContainer">
-            <!-- insert here project title or the "all to do.. due today.. etc" -->
+          <!-- insert here project title or the "all to do.. due today.. etc" -->
         </div>
         <div id="toDoContainer">
-            <table id="todoTable">
-                <thead>
-                    <tr>
-                        <td>Checkbox</td>
-                        <td>Quadrant</td>
-                        <td>Title</td>
-                        <td>Due Date</td>
-                        <td>Description</td>
-                        <td><button id="openToDoDialog">+ TO DO</button></td>
-                    </tr>
-                </thead>
-                <tbody id="toDoList">
-                    <!-- insert here dom for new to do item -->
-                </tbody>
-            </table>           
+          <table id="todoTable">
+            <thead>
+              <tr>
+                <td>Status</td>
+                <td>
+                  <p>Urgency</p>
+                  <p>Importance</p>
+                </td>
+                <td id="detailsHeader">
+                  <p id="detailsTitleInHeader">To Do Item</p>
+                  <p id="detailsDueDateInHeader">Due Date</p>
+                  <p id="detailsDescriptionInHeader">Description</p>
+                </td>
+                <td><button id="openToDoDialog">+ TO DO</button></td>
+              </tr>
+            </thead>
+            <tbody id="toDoList">
+              <!-- insert here dom for new to do item -->
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
-</div>
-</body>
-    <script src="main.js"></script>
-
+  </body>
+  <script src="main.js"></script>
 </html>
-
-
