@@ -12,13 +12,6 @@ const cancelProjectBtn = document.getElementById("cancelProject");
 let projectActiveObject = null;
 let toDoActiveObject = null;
 
-//Import images
-import myDelete from "./assets/delete.png";
-import myEdit from "./assets/edit.png";
-
-//Import CSS
-import "./style.css";
-
 // Access local storage
 function loadFromLocalStorage() {
   const storedData = localStorage.getItem("projects");
@@ -234,7 +227,7 @@ class AssignToDoContent {
     actionsCell.appendChild(deleteButton);
 
     const deleteIcon = document.createElement("img");
-    deleteIcon.src = myDelete;
+    deleteIcon.src = "./assets/delete.png";
     deleteIcon.setAttribute("class", "icon");
     deleteButton.appendChild(deleteIcon);
 
@@ -247,7 +240,7 @@ class AssignToDoContent {
     };
 
     const editIcon = document.createElement("img");
-    editIcon.src = myEdit;
+    editIcon.src = "./assets/edit.png";
     editIcon.setAttribute("class", "icon");
     editButton.appendChild(editIcon);
 
