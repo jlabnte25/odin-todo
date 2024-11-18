@@ -280,19 +280,18 @@ function showToDosForProject(projectName) {
 
 // Event listeners for add, update, and delete operations
 addToDoBtn.addEventListener("click", () => {
-  if (validateToDoInputField()) {
+  if (!validateToDoInputField()) {
+    alert("Please fill in all the required fields.");
+  } else {
     const toDoInstance = new AssignToDoContent();
     const toDoItem = toDoInstance.pushToDoItem();
     toDoInstance.displayToDoItem(toDoItem);
     emptyToDoInputField();
     console.log("Updated array:", projectActiveObject.projectItems);
     console.log("New item added:", toDoItem);
-  } else {
-    alert("Please fill in all the required fields.");
+    toDoDialog.close();
+    saveToLocalStorage();
   }
-
-  toDoDialog.close();
-  saveToLocalStorage();
 });
 
 function validateToDoInputField() {
